@@ -1,6 +1,6 @@
 import express from 'express';
 import { createConnection  } from 'typeorm';
-
+import 'express-async-errors';
 import { globalErrors } from './middlewares/globalError';
 import routes from './routes';
 
@@ -10,6 +10,7 @@ createConnection().then(connection => {
 
     app.use(express.json())
     app.use(routes)
+    
     app.use(globalErrors)
 
     app.listen(PORT, () => {

@@ -2,13 +2,13 @@ import {
             Entity,
             PrimaryGeneratedColumn,
             JoinColumn,
-            OneToOne, 
             Column,
             CreateDateColumn,
             ManyToOne,
             UpdateDateColumn
         } 
 from 'typeorm';
+
 import { User } from './User';
 
 @Entity()
@@ -35,5 +35,5 @@ export class Pix{
     createdAt: Date
 
     @UpdateDateColumn()
-    createdAd: Date
+    updatedAt: Date
 }

@@ -2,6 +2,7 @@ import { Request, Response } from 'Express';
 import userService from './user.service';
 
 export class userController{
+
     async siginin(req:Request, res:Response){
         const { email, password}= req.body;
         const userServic = new userService();
@@ -12,6 +13,9 @@ export class userController{
     }
 
     async siginup(req:Request, res:Response){
-        return res.send("Cadastrando um usuario")
+
+        const UserService = new userService();
+        const users = await UserService.signup(req.body);
+        return res.status(201).send(users)
     }
 }
